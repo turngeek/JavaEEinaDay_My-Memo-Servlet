@@ -1,0 +1,81 @@
+"factory" : {
+  "projects": [
+    {
+      "links": [],
+      "mixins": [
+        "pullrequest"
+      ],
+      "problems": [],
+      "source": {
+        "location": "https://github.com/turngeek/JavaEEinaDay_My-Memo-Servlet.git",
+        "type": "git",
+        "parameters": {}
+      },
+      "name": "JavaEEinaDay_My-Memo-Servlet",
+      "type": "maven",
+      "path": "/JavaEEinaDay_My-Memo-Servlet",
+      "attributes": {
+        "contribute_to_branch": [
+          "master"
+        ]
+      }
+    }
+  ],
+  "commands": [
+    {
+      "commandLine": "/home/user/wildfly-8.2.0.Final/bin/standalone.sh",
+      "name": "Start Wildfly 8",
+      "type": "custom",
+      "attributes": {
+        "previewUrl": "http://${server.port.8080}"
+      }
+    },
+    {
+      "commandLine": "/home/user/wildfly-8.2.0.Final/bin/jboss-cli.sh -c --command=:shutdown",
+      "name": "Stop Wildfly 8",
+      "type": "custom",
+      "attributes": {
+        "previewUrl": ""
+      }
+    },
+    {
+      "commandLine": "mvn -f ${current.project.path} package wildfly:deploy",
+      "name": "Build & Deploy App",
+      "type": "mvn",
+      "attributes": {
+        "previewUrl": "http://${server.port.8080}/"
+      }
+    }
+  ],
+  "defaultEnv": "default",
+  "name": "JavaEEinaDay-Servlet",
+  "environments": {
+    "default": {
+      "recipe": {
+        "type": "dockerfile",
+        "content": "##Dockerfile\nFROM codenvy/ubuntu_wildfly8\n",
+        "contentType": "text/x-dockerfile"
+      },
+      "machines": {
+        "dev-machine": {
+          "agents": [
+            "org.eclipse.che.ws-agent",
+            "org.eclipse.che.terminal",
+            "org.eclipse.che.ssh"
+          ],
+          "servers": {
+            "8080/tcp": {
+              "properties": {},
+              "protocol": "http",
+              "port": "8080"
+            }
+          },
+          "attributes": {
+            "memoryLimitBytes": "1073741824"
+          }
+        }
+      }
+    }
+  },
+  "links": []
+}
