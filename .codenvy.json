@@ -1,6 +1,6 @@
 {
   "v": "4.0",
-  "name": "JavaEEinaDayServlet",
+  "name": "JavaEEinaDay_My-Memo-Servlet",
   "workspace": {
     "environments": {
       "default": {
@@ -40,7 +40,7 @@
         "mixins": []
       }
     ],
-    "name": "JavaEEinaDayServlet",
+    "name": "JEE1Day-Servlet",
     "commands": [
     {
     "commandLine": "/home/user/wildfly-8.2.0.Final/bin/standalone.sh",
