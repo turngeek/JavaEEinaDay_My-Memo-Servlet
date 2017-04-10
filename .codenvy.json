@@ -7,7 +7,7 @@
         "machines": {
           "dev-machine": {
             "attributes": {
-              "memoryLimitBytes": "1073741824"
+              "memoryLimitBytes": "2147483648"
             },
             "servers": {},
             "agents": [
